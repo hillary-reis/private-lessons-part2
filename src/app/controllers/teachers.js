@@ -1,144 +1,45 @@
-const fs = require ('fs');
-const data = require ('../data.json');
-const { age, graduation, date } = require ('../utils');
+const { age, graduation, date } = require ('../../lib/utils');
 
-exports.index = function (req, res) {
-  const TheTeachers = data.teachers;
+module.exports = {
+  index (req, res) {
+    return res.render ("teachers/index");
+  },
+  create (req, res) {
+    return res.render ('teachers/create');
+  },
+  post (req, res) {
+    const keys = Object.keys(req.body);
 
-  const newTeachers = [];
-
-  for (teacher of TheTeachers ) {
-    let matters = teacher.matters.split(",");
-
-    const newTeacher = { ...teacher };
-
-    newTeacher.matters = matters;
-    
-    newTeachers.push(newTeacher);
-  };
-
-  return res.render ("teachers/index", { teachers: newTeachers });
-};
-
-exports.create = function (req, res) {
-  return res.render ('teachers/create');
-};
-
-exports.post = function (req, res) {
-  const keys = Object.keys(req.body);
-
-  for (key of keys) {
-    if (req.body[key] == "") {
-      return res.send ('Please, fill all fields!!');
+    for (key of keys) {
+      if (req.body[key] == "") {
+        return res.send ('Please, fill all fields!!');
+      };
     };
-  };
-
-  let { avatar_url, name, birth, schooling, classes, matters } = req.body;
-
-  birth = Date.parse (birth);
-  const created_at = Date.now ();
-  const id = Number (data.teachers.length + 1);
-
-  data.teachers.push ({
-    id,
-    avatar_url,
-    name,
-    birth,
-    schooling,
-    classes,
-    matters,
-    created_at
-  });
-
-  fs.writeFile ("data.json", JSON.stringify (data, null, 2), function (err) {
-    if (err) return res.send ("White file error!");
-
-    return res.redirect (`/teachers${id}`);
-  });
-};
-
-exports.show = function (req, res) {
-  const { id } = req.params;
-
-  const foundTeacher = data.teachers.find (function (teacher) {
-    return teacher.id == id;
-  });
-
-  if (!foundTeacher) return res.send ("Teacher not found");
-
-  const teacher = {
-    ...foundTeacher,
-    age: age (foundTeacher.birth),
-    graduation: graduation (foundTeacher.schooling),
-    matters: foundTeacher.matters.split(","),
-    created_at: new Intl.DateTimeFormat("pt-BR").format(foundTeacher.created_at),
-  }
-
-  return res.render ("teachers/show", { teacher });
-};
-
-exports.edit = function (req, res) {
-  const { id } = req.params;
-
-  const foundTeacher = data.teachers.find (function (teacher) {
-    return id == teacher.id;
-  });
-
-  if (!foundTeacher) return res.send ("Teacher not found");
-
-  const teacher = {
-    ...foundTeacher,
-    birth: date (foundTeacher.birth).iso,
-  }
   
-  return res.render ('teachers/edit', { teacher });
-};
+    let { avatar_url, name, birth, schooling, classes, matters } = req.body;
+    
+    return
+    //return res.redirect (`/teachers${id}`);
+  },
+  show (req, res) {
+    return res.render ("teachers/show");
+  },
+  edit (req, res) {
+    return res.render ('teachers/edit');
+  },
+  put (req, res) {
+    const keys = Object.keys(req.body);
 
-exports.put = function (req, res) {
-  const { id } = req.body;
-  let index = 0;
+    for (key of keys) {
+      if (req.body[key] == "") {
+        return res.send ('Please, fill all fields!!');
+      };
+    };
 
-  const foundTeacher = data.teachers.find(function (teacher, foundIndex) {
-    if (id == teacher.id) {
-      index = foundIndex;
-
-      return true
-    }
-
-  });
-
-  if (!foundTeacher) return res.send ("Teacher not found");
-
-  const teacher = {
-    ...foundTeacher,
-    ...req.body,
-    birth: Date.parse (req.body.birth),
-    id: Number (req.body.id),
-  };
-
-  data.teachers[index] = teacher;
-
-  fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-    if (err) return res.send("Write error!");
-
-    return res.redirect(`/teachers/${ id }`);
-  });
-
-};
-
-exports.delete = function (req, res) {
-  const { id } = req.body;
-
-  const filteredTeachers = data.teachers.filter(function (teacher) {
-    return teacher.id != id;
-  });
-
-  data.teachers = filteredTeachers;
-
-  fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
-    if (err) return res.send ("Write file error!");
-
+    return
+    //return res.redirect(`/teachers/${ id }`);
+  },
+  delete (req, res) {
     return res.redirect ("/teachers");
-  });
-
+  }
 }
