@@ -1,0 +1,23 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+  <form class="card" method="POST" action="/teachers">
+
+    <section
+      class="avatar"
+      style="background: url({{teacher.avatar_url}}) no-repeat center center / cover">
+    </section>
+
+    <section class="details">
+      <h3> Novo(a) Professor(a) </h3>
+
+      {% include 'teachers/fields.njk' %}
+
+      <button type="submit"> Salvar Cadastro </button>
+
+    </section>
+
+  </form>
+
+{% endblock content %}

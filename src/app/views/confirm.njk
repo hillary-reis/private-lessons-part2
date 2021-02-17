@@ -1,0 +1,13 @@
+<Script>
+  const formDelete = document.querySelector('#form-delete');
+
+  formDelete.addEventListener('submit', function (event) {
+    const confirmation = confirm('Deseja realmente deletar esse(a) aluno(a)?')
+
+    if (!confirmation) {
+      event.preventDefault();
+    };
+
+  });
+
+</Script>
