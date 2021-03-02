@@ -16,7 +16,7 @@ module.exports = {
       };
     };
   
-    let { avatar_url, name, birth, schooling, classes, matters } = req.body;
+    let { avatar_url, name, birth_date, education_level, class_type, subjects_taught } = req.body;
     
     return
     //return res.redirect (`/teachers${id}`);

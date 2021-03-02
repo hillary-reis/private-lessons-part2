@@ -1,54 +1,74 @@
 <div class="item">
-  <div> Avatar URL </div>
+  <div>
+    Avatar URL
+  </div>
   <div>
     <input type="url" name="avatar_url" placeholder="http://" value="{{ teacher.avatar_url }}">
   </div>
 </div>
 
 <div class="item">
-  <div> Professor </div>
+  <div>
+    Professor
+  </div>
   <div>
     <input type="text" name="name" placeholder="Nome do(a) professor(a)" value="{{ teacher.name }}">
   </div>
 </div>
 
 <div class="item">
-  <div> Data de Nascimento </div>
   <div>
-    <input type="date" name="birth" value="{{ teacher.birth }}">
+    Data de Nascimento
+  </div>
+  <div>
+    <input type="date" name="birth_date" value="{{ teacher.birth_date }}">
   </div>
 </div>
 
 <div class="item">
-  <div> Grau de Escolaridade </div>
   <div>
-    <select name="schooling">
-      <option value="1"> Ensino Médio Completo </option>
-      <option value="2"> Ensino Superior Completo </option>
-      <option value="3"> Mestrado </option>
-      <option value="4"> Doutorado </option>
+    Grau de Escolaridade
+  </div>
+  <div>
+    <select name="education_level">
+      <option value="1">
+        Ensino Médio Completo
+      </option>
+      <option value="2">
+        Ensino Superior Completo
+      </option>
+      <option value="3">
+        Mestrado
+      </option>
+      <option value="4">
+        Doutorado
+      </option>
     </select>
   </div>
 </div>
 
 <div class="item">
-  <div> Aulas </div>
+  <div>
+    Aulas
+  </div>
   <div>
     <span>
-      <input type="radio" name="classes" value="P" {% if teacher.classes == "P" %} checked {% endif %}>
+      <input type="radio" name="class_type" value="P" {% if teacher.class_type == "P" %} checked="checked" {% endif %}>
       Presenciais
     </span>
 
     <span>
-      <input type="radio" name="classes" value="D" {% if teacher.classes == "D" %} checked {% endif %}>
-      À distância 
+      <input type="radio" name="class_type" value="D" {% if teacher.class_type == "D" %} checked="checked" {% endif %}>
+      À distância
     </span>
   </div>
 </div>
 
 <div class="item">
-  <div> Área de Atuação </div>
   <div>
-    <input type="text" name="matters" placeholder="Separe as matérias por vírgula." value="{{ teacher.matters }}">
+    Área de Atuação
+  </div>
+  <div>
+    <input type="text" name="subjects_taught" placeholder="Separe as matérias por vírgula." value="{{ teacher.subjects_taught }}">
   </div>
 </div>

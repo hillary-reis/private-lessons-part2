@@ -4,14 +4,22 @@
 
   <div class="card table-container">
 
-    <a href="/teachers/create"> Novo </a>
+    <a href="/teachers/create">
+      Novo
+    </a>
 
     <table>
       <thead>
         <tr>
-          <th> Professor(a) </th>
-          <th colspan="3"> Aula(s) </th>
-          <th> Detalhes </th>
+          <th>
+            Professor(a)
+          </th>
+          <th colspan="3">
+            Aula(s)
+          </th>
+          <th>
+            Detalhes
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -21,10 +29,18 @@
               <span style="background-image: url({{teacher.avatar_url}})"></span>
               {{teacher.name}}
             </td>
-            {% for matter in teacher.matters %}
-              <td class="matters"> <span> {{matter}} </span> </td>
+            {% for matter in teacher.subjects_taught %}
+              <td class="subjects_taught">
+                <span>
+                  {{matter}}
+                </span>
+              </td>
             {% endfor %}
-            <td><a href="/teachers/{{ teacher.id }}"> Ver </a></td>
+            <td>
+              <a href="/teachers/{{ teacher.id }}">
+                Ver
+              </a>
+            </td>
           </tr>
         {% endfor %}
       </tbody>

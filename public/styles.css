@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 :root {
   --primary-color: #282a36;
@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--primary-color);
 }
 
@@ -59,14 +59,12 @@ header {
   position: absolute;
   left: 0;
   bottom: -4px;
-} 
+}
 
 .links a:hover::after {
   width: 100%;
   transition: width 700ms ease-in-out;
 }
-
-
 
 /*=== CARD ===*/
 
@@ -95,20 +93,16 @@ header {
     transform: translateY(15px);
   }
 
-  100%{
+  100% {
     opacity: 1;
   }
 }
-
-
 
 /*=== avatar ===*/
 
 .avatar {
   box-shadow: 5px 1px 6px -2px rgba(0, 0, 0, 0.4);
 }
-
-
 
 /*=== details ===*/
 
@@ -125,7 +119,8 @@ header {
   padding: 16px 0;
 }
 
-.details h3, .details .item div:nth-child(1) {
+.details h3,
+.details .item div:nth-child(1) {
   color: #777;
   font-size: 16px;
   font-weight: normal;
@@ -147,7 +142,8 @@ header {
   text-align: center;
 }
 
-.details .item div:nth-child(2) span, tbody tr td.matters span {
+.details .item div:nth-child(2) span,
+tbody tr td.subjects_taught span {
   padding: 8px 16px;
   background-color: var(--pink-color);
   border-radius: 16px;
@@ -160,11 +156,10 @@ header {
   font-size: 13px;
 }
 
-
-
 /*=== FORM ===*/
 
-form input, form select {
+form input,
+form select {
   width: 100%;
   outline: none;
   color: #555;
@@ -183,7 +178,8 @@ form input::placeholder {
   font-weight: normal;
 }
 
-button[type="submit"], a.button {
+button[type="submit"],
+a.button {
   padding: 8px 32px;
   background-color: var(--pink-color);
   color: var(--white-color);
@@ -205,8 +201,6 @@ a.button {
   background-color: #fd3535;
 }
 
-
-
 /*=== INDEX TEACHRES ===*/
 
 .table-container {
@@ -217,14 +211,15 @@ a.button {
 
 .table-container table {
   border-spacing: 0;
-  width: 100%
+  width: 100%;
 }
 
-.table-container  thead tr th {
+.table-container thead tr th {
   text-align: left;
 }
 
-th, tr {
+th,
+tr {
   padding: 16px;
   border-bottom: 1px solid #d9d9d9;
 }
@@ -235,11 +230,13 @@ th {
   font-size: 15px;
 }
 
-.table-container  thead tr th:last-child, td:last-child {
+.table-container thead tr th:last-child,
+td:last-child {
   text-align: center;
 }
 
-thead tr th.schoolYear, tbody tr td.schoolYear {
+thead tr th.schoolYear,
+tbody tr td.schoolYear {
   text-align: center;
 }
 
@@ -263,7 +260,8 @@ tbody tr td:first-child span {
   border: 2px solid white;
 }
 
-tbody tr td:last-child a, .table-container > a {
+tbody tr td:last-child a,
+.table-container > a {
   background-color: var(--pink-color);
   padding: 8px 16px;
   text-decoration: none;
@@ -278,7 +276,7 @@ tbody tr td:last-child a, .table-container > a {
   display: inline-block;
 }
 
-tbody tr td.matters span {
+tbody tr td.subjects_taught span {
   margin-top: 0;
   margin-right: 8px;
   color: var(--white-color);

@@ -1,14 +1,14 @@
 module.exports = {
   age (timestamp) {
     const today = new Date();
-    const birthDate = new Date (timestamp);
+    const birth_dateDate = new Date (timestamp);
   
   
-    let age = today.getFullYear() - birthDate.getFullYear();
+    let age = today.getFullYear() - birth_dateDate.getFullYear();
   
-    const month = today.getMonth() - birthDate.getMonth();
+    const month = today.getMonth() - birth_dateDate.getMonth();
   
-    if (month < 0 || month == 0 && today.getDate() < birthDate.getDate()) {
+    if (month < 0 || month == 0 && today.getDate() < birth_dateDate.getDate()) {
       age = age - 1;
     }
   
@@ -16,8 +16,8 @@ module.exports = {
     return age
   },
 
-  graduation (schooling) {
-    let graduation = new String (schooling);
+  graduation (education_level) {
+    let graduation = new String (education_level);
 
     if (graduation == "1") {
       graduation = "Ensino Médio Completo";
@@ -50,7 +50,7 @@ module.exports = {
       month,
       year,
       iso: `${year}-${month}-${day}`,
-      birthDay: `${day}/${month}`
+      birth_dateDay: `${day}/${month}`
     };
   },
 
