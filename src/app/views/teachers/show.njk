@@ -52,9 +52,9 @@
           Área de atuação
         </div>
         <div>
-          {% for matter in teacher.subjects_taught %}
+          {% for subject_taught in teacher.subjects_taught %}
             <span>
-              {{ matter }}
+              {{ subject_taught }}
             </span>
           {% endfor %}
         </div>
