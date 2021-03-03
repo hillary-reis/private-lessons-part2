@@ -32,16 +32,22 @@ module.exports = {
     Teacher.find(req.params.id, function (teacher) {
       if (!teacher) return res.send ("Teacher not found!");
 
-      teacher.age = age (teacher.birth);
+      teacher.age = age (teacher.birth_date);
       teacher.graduation = graduation (teacher.education_level);
-      //teacher.subjects_taught = teacher.subjects_taught.split(",");
+      teacher.subjects_taught = teacher.subjects_taught.split(",");
       teacher.created_at = date(teacher.created_at).format;
 
-      return res.render ("teachers/show", { teacher });
-    })
+      return res.render ('teachers/show', { teacher });
+    });
   },
   edit (req, res) {
-    return res.render ('teachers/edit');
+    Teacher.find(req.params.id, function (teacher) {
+      if (!teacher) return res.send ("Teacher not found!");
+
+      teacher.birth_date = date(teacher.birth_date).iso;
+
+      return res.render ('teachers/edit', { teacher });
+    });
   },
   put (req, res) {
     const keys = Object.keys(req.body);
@@ -52,8 +58,9 @@ module.exports = {
       };
     };
 
-    return
-    //return res.redirect(`/teachers/${ id }`);
+    Teacher.update(req.body, function () {
+      return res.redirect(`/teachers/${ req.body.id }`);
+    });
   },
   delete (req, res) {
     return res.redirect ("/teachers");
