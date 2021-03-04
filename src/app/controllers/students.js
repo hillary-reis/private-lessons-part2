@@ -1,4 +1,4 @@
-const { age, graduation, date } = require ('../../lib/utils');
+const { grade, date } = require ('../../lib/utils');
 const Student = require ('../models/Student');
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
       if (!student) return res.send ("student not found!");
 
       student.birth_date = date (student.birth_date).birth_dateDay;
-      student.grade = grade (student.schoolYear);
+      student.grade = grade (student.school_year);
 
       return res.render ('students/show', { student });
     });

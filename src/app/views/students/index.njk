@@ -4,15 +4,25 @@
 
   <div class="card table-container">
 
-    <a href="/students/create"> Novo </a>
+    <a href="/students/create">
+      Novo
+    </a>
 
     <table width="100%">
       <thead>
         <tr>
-          <th> Aluno(a) </th>
-          <th> Email </th>
-          <th class="schoolYear"> Ano Escolar </th>
-          <th> Detalhes </th>
+          <th>
+            Aluno(a)
+          </th>
+          <th>
+            Email
+          </th>
+          <th class="school_year">
+            Ano Escolar
+          </th>
+          <th>
+            Detalhes
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -22,9 +32,17 @@
               <span style="background-image: url({{student.avatar_url}})"></span>
               {{student.name}}
             </td>
-            <td> {{student.email}} </td>
-            <td class="schoolYear"> {{student.schoolYear}} </td>
-            <td><a href="/students/{{ student.id }}"> Ver </a></td>
+            <td>
+              {{student.email}}
+            </td>
+            <td class="school_year">
+              {{student.school_year}}
+            </td>
+            <td>
+              <a href="/students/{{ student.id }}">
+                Ver
+              </a>
+            </td>
           </tr>
         {% endfor %}
       </tbody>

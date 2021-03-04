@@ -235,8 +235,8 @@ td:last-child {
   text-align: center;
 }
 
-thead tr th.schoolYear,
-tbody tr td.schoolYear {
+thead tr th.school_year,
+tbody tr td.school_year {
   text-align: center;
 }
 

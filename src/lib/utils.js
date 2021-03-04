@@ -55,8 +55,8 @@ module.exports = {
     };
   },
 
-  grade (schoolYear) {
-    let grade = new String (schoolYear);
+  grade (school_year) {
+    let grade = new String (school_year);
 
     if (grade == "5EF") {
       grade = "5° ano do Ensino Fundamental";
