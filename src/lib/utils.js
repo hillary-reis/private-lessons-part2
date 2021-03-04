@@ -83,5 +83,5 @@ module.exports = {
     };
 
     return grade
-  }
+  },
 }
