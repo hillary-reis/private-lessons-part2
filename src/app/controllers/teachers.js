@@ -11,7 +11,7 @@ module.exports = {
           teacher.subjects_taught = teacher.subjects_taught.split(",");
         };
             
-        return res.render ('teachers/index', { teachers });
+        return res.render ('teachers/index', { teachers, filter });
       });
     } else {
       Teacher.all (function (teachers) {
