@@ -201,7 +201,7 @@ a.button {
   background-color: #fd3535;
 }
 
-/*=== INDEX TEACHRES ===*/
+/*=== INDEX TEACHERS ===*/
 
 .table-container {
   display: block;
@@ -282,3 +282,36 @@ tbody tr td.subjects_taught span {
   color: var(--white-color);
   font-weight: normal;
 }
+
+/*=== FILTERS ===*/
+
+.table-container .header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.table-container .header a {
+  margin: 0;
+  width: 120px;
+}
+
+.table-container .header form {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  grid-gap: 8px;
+  align-items: center;
+}
+
+.table-container .header form input {
+  border: 1px solid #f7f5f5;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+
+.table-container .header form button {
+  margin: 0;
+}
+

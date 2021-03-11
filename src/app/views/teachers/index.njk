@@ -3,23 +3,21 @@
 {% block content %}
 
   <div class="card table-container">
+    <div class="header">
+      <a class="button" href="/teachers/create"> Novo </a>
 
-    <a href="/teachers/create">
-      Novo
-    </a>
+      <form action="/teachers" method="GET">
+        <input type="text" name="filter" placeholder="Nome">
+        <button type="submit"> Filtrar </button>
+      </form>
+    </div>
 
     <table>
       <thead>
         <tr>
-          <th>
-            Professor(a)
-          </th>
-          <th colspan="3">
-            Aula(s)
-          </th>
-          <th>
-            Detalhes
-          </th>
+          <th> Professor(a) </th>
+          <th colspan="3"> Aula(s) </th>
+          <th> Detalhes </th>
         </tr>
       </thead>
       <tbody>
@@ -31,15 +29,11 @@
             </td>
             {% for subject_taught in teacher.subjects_taught %}
               <td class="subjects_taught">
-                <span>
-                  {{subject_taught}}
-                </span>
+                <span> {{subject_taught}} </span>
               </td>
             {% endfor %}
             <td>
-              <a href="/teachers/{{ teacher.id }}">
-                Ver
-              </a>
+              <a href="/teachers/{{ teacher.id }}"> Ver </a>
             </td>
           </tr>
         {% endfor %}
