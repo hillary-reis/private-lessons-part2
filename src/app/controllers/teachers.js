@@ -3,25 +3,39 @@ const Teacher = require ('../models/Teacher');
 
 module.exports = {
   index (req, res) {
-    const { filter } = req.query
+    let { filter, page, limit } = req.query;
 
-    if (filter) {
-      Teacher.findBy(filter, function (teachers) {
-        for (teacher of teachers ) {
-          teacher.subjects_taught = teacher.subjects_taught.split(",");
-        };
-            
-        return res.render ('teachers/index', { teachers, filter });
-      });
-    } else {
-      Teacher.all (function (teachers) {
-        for (teacher of teachers ) {
-          teacher.subjects_taught = teacher.subjects_taught.split(",");
-        };
-            
-        return res.render ('teachers/index', { teachers });
-      });
+    page = page || 1;
+    limit = limit || 2;
+    let offset = limit * (page - 1);
+
+    const params = {
+      filter,
+      page,
+      limit,
+      offset,
+      callback(teachers) {}
     };
+
+    Teacher.paginate(params);
+
+    // if (filter) {
+    //   Teacher.findBy(filter, function (teachers) {
+    //     for (teacher of teachers ) {
+    //       teacher.subjects_taught = teacher.subjects_taught.split(",");
+    //     };
+            
+    //     return res.render ('teachers/index', { teachers, filter });
+    //   });
+    // } else {
+    //   Teacher.all (function (teachers) {
+    //     for (teacher of teachers ) {
+    //       teacher.subjects_taught = teacher.subjects_taught.split(",");
+    //     };
+            
+    //     return res.render ('teachers/index', { teachers });
+    //   });
+    // };
   },
   create (req, res) {
     return res.render ('teachers/create');
