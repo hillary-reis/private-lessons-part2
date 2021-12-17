@@ -14,8 +14,16 @@ module.exports = {
       page,
       limit,
       offset,
-      callback(teachers) {}
+      callback(teachers) {
+        for (teacher of teachers) {
+          teacher.subjects_taught = teacher.subjects_taught.split(",");
+        }
+
+        return res.render ('teachers/index', { teachers, filter });
+      }
     };
+
+
 
     Teacher.paginate(params);
 
